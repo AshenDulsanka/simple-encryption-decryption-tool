@@ -6,7 +6,7 @@ using namespace std;
 
 bool performCaesarCipher(string &content, bool encrypt)
 {
-    int shift = encrypt ? 3 : -3;
+    int shift = encrypt ? 13 : -13;
 
     for (char &ch : content)
     {
