@@ -4,11 +4,14 @@
 
 using namespace std;
 
-bool performCaesarCipher(string& content, bool encrypt){
+bool performCaesarCipher(string &content, bool encrypt)
+{
     int shift = encrypt ? 3 : -3;
 
-    for (char& ch: content){
-        if (isalpha(ch)){
+    for (char &ch : content)
+    {
+        if (isalpha(ch))
+        {
             char base = isupper(ch) ? 'A' : 'a';
             ch = static_cast<char>((ch - base + shift + 26) % 26 + base);
         }
@@ -17,9 +20,11 @@ bool performCaesarCipher(string& content, bool encrypt){
     return true;
 }
 
-bool encryptFile(const string& filename, bool encrypt){
+bool encryptFile(const string &filename, bool encrypt)
+{
     ifstream inFile(filename); // Open file for reading
-    if (!inFile){
+    if (!inFile)
+    {
         return false;
     }
 
@@ -28,10 +33,12 @@ bool encryptFile(const string& filename, bool encrypt){
     inFile.close();
 
     // encrypt the content
-    if (performCaesarCipher(content, encrypt)){
+    if (performCaesarCipher(content, encrypt))
+    {
         // create the iutput file
         ofstream outFile(encrypt ? "encrypted_" + filename : "decrypted_" + filename);
-        if (!outFile){
+        if (!outFile)
+        {
             return false;
         }
 
