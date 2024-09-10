@@ -15,7 +15,19 @@ int main(){
     cin >> mode;
 
     if(mode == 'e' || mode == 'E'){
-        
+        if (encryptFile(filename, true)){
+            cout << "Encryption successful!" << endl;
+        } else {
+            cerr << "Error: Encryption failed!" << endl;
+        }
+    } else if (mode == 'd' || mode == 'D'){
+        if (encryptFile(filename, false)){
+            cout << "Decryption successful!" << endl;
+        } else {
+            cerr << "Error: Decryption failed!" << endl;
+        }
+    } else {
+        cerr << "Error: Invalid mode!. Use 'e' or 'd'." << endl;
     }
 
     return 0;
